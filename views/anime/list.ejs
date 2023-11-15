@@ -1,0 +1,39 @@
+<%- include ../partials/header.ejs %>
+<%- include('partials/navbar.ejs') %>
+
+<main class ="container">
+    <div class="row">
+    <div class="offset-md-1 col-md-10">
+        <h1><% title %> </h1>
+        <a href= "/animelist/add" class="btn btn-primary"
+        role="button"><i class= " fas fa-plus-circle"></i>
+        <br>
+        <table class="table table-bordered table-striped table-hover">
+            <tr class="d-flex">
+                <th class="text-center col-1">title</th>
+                <th class="text-center col-2">studio</th>
+                <th class="text-center col-3">year</th>
+            </tr>
+
+            <% for(let count=0;count<animelist.length;count++) { %>
+            <tr class="d-flex">
+                <td class="text-center col-1"><%= AnimeList[count].title %></td>
+                <td class="text-center col-2"><%= AnimeList[count].studio $></td>
+                <td class="text-center col-3"><%= AnimeList[count].year $></td>
+                <td class="text-center col-1">
+                    <a href="/animelist/edit/<%= AnimeList[count]._id %>"
+                        class= "btn btm-primary btn-sm">
+                        <i class="fas Fa-pencil-alt"></i> Edit
+                    </a>
+                </td>
+                <td class="text-center col-1">
+                    <a href="/AnimeList/delete/<%= Animelist[count]._id%>"
+                        class="btn btn-danger btn-sm">
+                        <i class="fas trash-alt"></i>Delete
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </div>
+        </div>
+</main>
