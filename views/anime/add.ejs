@@ -1,43 +1,5 @@
-<!DOCTYPE HTML>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatibel" content= "IE=edge">
-    <meta name="viewport" content=" width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
-    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="@fortawesome\fontawesome-free/css/all.min.css"/>
-  </head>
-<body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="aboutme"><i class="fa-solid fa-address-book"></i>
-          about me</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="projects">
-          <i class="fa-solid fa-computer"></i>Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact">
-          <i class="fa-solid fa-envelope"></i>
-          Contact</a>
-
-        </li>  
-
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
 
 <!-- Content for the Add page -->
 <div class="container">
@@ -51,7 +13,7 @@
                     <input type="text" class="form-control"
                     id="titleTextField"
                     placeholder="Title"
-                    name="Title" required>
+                    name="title" required>
                 </div>
 
                 <div class="form-group">
@@ -59,7 +21,7 @@
                     <input type="text" class="form-control"
                     id="studioTextField"
                     placeholder="name of production studio"
-                    name="Studio" required>
+                    name="studio" required>
                 </div>
 
                 <div class="form-group">
@@ -67,7 +29,7 @@
                     <input type="text" class="form-control"
                     id="yearTextField"
                     placeholder="year of brodcast"
-                    name="Year" required>
+                    name="year" required>
                 </div>
 
 
@@ -83,14 +45,4 @@
     </div>
 </div>
 
-<nav class="navbar fixed-bottom navbar-light bg-light">
-  <span class="navbar fixed-bottom navbar-light bg-light">
-    &copy; copyright 2023 Andrew Bentley
-    <li>
-      <a class= "navbar-brand href" href="https://github.com/meap9898"><i class="fa-brands fa-github"></i></a>
-    </li>
-        <li>
-      <a class= "navbar-brand href" href="https://open.spotify.com/user/meap98?si=dee5fb166f7d45d5"><i class="fa-brands fa-spotify"></i></a>
-    </li>
-  </span>
-</nav>
+    <%- include('../partials/footer.ejs') %>
