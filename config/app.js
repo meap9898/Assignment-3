@@ -1,28 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 var router = express.Router();
 
-
-let mongoose = require('mongoose');
-let DB = require('./db');
-
-mongoose.connect(DB.URI);
-
-let mongDB = mongoose.connection;
-
-mongDB.on('error',console.error.bind(console, 'Connection Error: '));
-mongDB.once('open', ()=>{
-  console.log("connected to the MongoDB");
-});
-
-var indexRouter = require('../routes/index');
-var usersRouter = require('../routes/users');
-var AnimeRouter = require('../routes/anime');
-
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -32,13 +15,24 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../public')));
-app.use(express.static(path.join(__dirname, '../../node_modules')));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
 
+let mongoose = require('mongoose');
+let mongoDB = mongoose.connection;
+let DB = require('./db');
+//mongoose.connect('mongodb://127.0.0.1:27017/anilist');
+mongoose.connect(DB.URI);
+mongoDB.on('error',console.error.bind(console,'Connection Error'));
+mongoDB.once('open',()=>{console.log("Mongo DB is connected")});
+//mongoose.connect(DB.URI);
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let animeRouter = require('../routes/anime');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/anime', AnimeRouter);
+app.use('/animelist', animeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,7 +47,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error',{title:'Error'});
 });
 
 module.exports = app;

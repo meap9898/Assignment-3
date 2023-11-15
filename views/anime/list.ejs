@@ -1,39 +1,105 @@
-<%- include ../partials/header.ejs %>
-<%- include('partials/navbar.ejs') %>
+<!DOCTYPE HTML>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibel" content= "IE=edge">
+    <meta name="viewport" content=" width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="@fortawesome\fontawesome-free/css/all.min.css"/>
+  </head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="aboutme"><i class="fa-solid fa-address-book"></i>
+          about me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projects">
+          <i class="fa-solid fa-computer"></i>Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact">
+          <i class="fa-solid fa-envelope"></i>
+          Contact</a>
 
-<main class ="container">
-    <div class="row">
-    <div class="offset-md-1 col-md-10">
-        <h1><% title %> </h1>
-        <a href= "/animelist/add" class="btn btn-primary"
-        role="button"><i class= " fas fa-plus-circle"></i>
+        </li>  
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--navbar-->
+<!--footer-->
+  <nav class="navbar fixed-bottom navbar-light bg-dark">
+  <h6 class="display-6 navbar-text">&copy; Copyright 2023. All Rights Reserved.</h6>
+</nav>
+<!--footer-->
+<main class = "container">
+      <div class="row">
+        <div class="col-md-offset-3">
+        <h1> <%=title%></h1>
+          <a href="/AnimeList/add" class="btn btn-primary" role="button"></a>
+              <i class= "fas fa-plus-circle"></i> Add a New Anime to list </a>
         <br>
-        <table class="table table-bordered table-striped table-hover">
-            <tr class="d-flex">
-                <th class="text-center col-1">title</th>
-                <th class="text-center col-2">studio</th>
-                <th class="text-center col-3">year</th>
-            </tr>
+      <table class= "table table-bordered table-striped table-hover">
+      <tr class="d-flex">
+        <th class ="text-center col-2">Title</th>
+        <th class ="text-center col-2">Studio</th>
+        <th class ="text-center col-1">Year</th>
 
-            <% for(let count=0;count<animelist.length;count++) { %>
-            <tr class="d-flex">
-                <td class="text-center col-1"><%= AnimeList[count].title %></td>
-                <td class="text-center col-2"><%= AnimeList[count].studio $></td>
-                <td class="text-center col-3"><%= AnimeList[count].year $></td>
-                <td class="text-center col-1">
-                    <a href="/animelist/edit/<%= AnimeList[count]._id %>"
-                        class= "btn btm-primary btn-sm">
-                        <i class="fas Fa-pencil-alt"></i> Edit
-                    </a>
+        </td>
+      <% for(let i=0; i< AnimeList.length; i++) { %>
+          <tr class="d-flex">
+            <td class ="text-center col-2"><%= AnimeList[i].title %></td>
+            <td class ="text-center col-2"><%= AnimeList[i].studio %></td>
+            <td class ="text-center col-1"><%= AnimeList[i].year %></td>
+            <td class ="text-center col-1">
+              <a href="/animelist/edit/<%= AnimeList[i]._id %>"
+                class="btn btn-primary">
+                <i class="fas fa-pencil-all"></i> Edit </td>
+            </td>
+            <td class ="text-center col-1">
+                <a href="/animelist/delete/<%= AnimeList[i]._id %>"
+                  class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i> Delete </td>
                 </td>
-                <td class="text-center col-1">
-                    <a href="/AnimeList/delete/<%= Animelist[count]._id%>"
-                        class="btn btn-danger btn-sm">
-                        <i class="fas trash-alt"></i>Delete
-                    </a>
-                </td>
-            </tr>
-            <% } %>
+
+            
+
+          </tr>
+        <% } %>
+        </tr>
+        </table>
         </div>
-        </div>
-</main>
+    </div>
+    </div>
+    </main>
+  <!--Script files-->
+  <script src = "/Scripts/app.js"></script>
+  <script src = "/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/jquery/dist/jquery.min.js"></script>
+  
+</body>
+</html>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <span class="navbar fixed-bottom navbar-light bg-light">
+    &copy; copyright 2023 Andrew Bentley
+    <li>
+      <a class= "navbar-brand href" href="https://github.com/meap9898"><i class="fa-brands fa-github"></i></a>
+    </li>
+        <li>
+      <a class= "navbar-brand href" href="https://open.spotify.com/user/meap98?si=dee5fb166f7d45d5"><i class="fa-brands fa-spotify"></i></a>
+    </li>
+  </span>
+</nav>

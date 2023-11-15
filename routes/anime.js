@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-let Anime = require('../models/Anime');
-let AnimeController = require('../controllers/Anime')
-
-
-
-/*read */
-// get route
-router.get('/', AnimeController.DisplayAnimelist);
-//add
-router.get('/add', AnimeController.AddAnime);
+//const { router } = require('../config/app');
+let Anime = require('../models/anime');
+let AnimeController = require('../controllers/anime')
+/* Get route for the Bio Books list */
+// Read Operation
+router.get('/', AnimeController.DislayAnimelist);
+/* Get route for Add Book page --> Create */
+router.get('/add', AnimeController.AddAnime); 
+/* Post route for Add Book page --> Create */
 router.post('/add', AnimeController.ProcessAnime);
-//display edit
+/* Get route for displaying the Edit Book page --> Update */
 router.get('/edit/:id', AnimeController.EditAnime);
-router.post('/add', AnimeController.ProcessEditAnime);
-// delete
+/* Post route for processing the Edit Book page --> Update */
+router.post('/edit/:id', AnimeController.ProcessEditAnime);
+/* Get to perform Delete Operation --> Delete Operation */
 router.get('/delete/:id', AnimeController.DeleteAnime);
-module.exports=router;
+ module.exports = router;

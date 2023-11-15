@@ -1,4 +1,1 @@
-module.exports=
-{
-    "URI": "mongodb://127.0.0.1:27017/WeebTrash"
-}
+module.exports = {"URI":"mongodb://127.0.0.1:27017/anilist"}

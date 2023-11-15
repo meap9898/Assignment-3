@@ -5,4 +5,10 @@ body {
 
 a {
   color: #00B7FF;
+
+}
+
+form
+{
+    background: linear-gradient(45deg, red, blue);
 }

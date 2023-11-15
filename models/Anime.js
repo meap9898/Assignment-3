@@ -1,13 +1,13 @@
 let mongoose = require('mongoose');
 
-let AnimeModel = mongoose.Schema({
-    _id: Number,
-    title: String,
-    Studio: String,
-    year: Number
+// create a model class
+let animeModel = mongoose.Schema({
 
+    title: String,
+    studio: String,
+    year: Number
 },
 {
-    collection: "Anime"
+    collection:"anime"
 });
-module.exports = mongoose.model('Anime', AnimeModel);
+module.exports = mongoose.model('Anime',animeModel);
