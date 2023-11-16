@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 //const { router } = require('../config/app');
 let Anime = require('../models/anime');
-let AnimeController = require('../controllers/anime');
+let AnimeController = require('../controllers/Anime');
 /* Get route for the Bio Books list */
 // Read Operation
 router.get('/', AnimeController.DislayAnimelist);
