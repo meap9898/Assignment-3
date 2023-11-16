@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-// create a model class
+// create model for anime
 let animeModel = mongoose.Schema({
 
     title: String,
