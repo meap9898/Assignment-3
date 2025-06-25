@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<h1>Welcome to the <%= title %> page</h1>
+ <form action="mailto:meap0323@gmail.com" method="post" enctype="text/plain"
+        name="form">
+        </form>
+        <form action="mailto:meap0323@gmail.com" ?subject=Signup Form method="post"
+        enctype="text/plain" name="form">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name" size="32">
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input name="email" type="email" size="40">
+        </p>
+        <p>
+            <label for="comments">Comments?</label><br>
+            <textarea name="comments" cols="60" rows="6"></textarea>
+            </p>
+        <p>
+            <p><input type="submit" value="Click here to submit the form"/></p>
+        </h2>
+
+<%- include('partials/footer.ejs') %>
+
+<script src="/javascripts/apps.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
+</body>
+</html>
