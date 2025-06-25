@@ -19,7 +19,7 @@ router.get('/heh', (req,res) => {
     res.send('Boku No Chinchin Wa Chisai Des')
 })
 router.get('/technition', (req,res) => {
-  res.render('Computertechnition', { title: 'Computer technition' });
+  res.render('computertechnition', { title: 'Computer technition' });
 })
 
 module.exports = router;
